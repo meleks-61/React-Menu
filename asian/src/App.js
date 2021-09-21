@@ -20,6 +20,11 @@ background-color: orange;
 
 function App() {
   const [menuItems, setMenuItems] =useState(data)
+  const[visible,setVisible]=useState(false)
+  const changeVisible=()=>{
+    setVisible(!visible)
+  }
+ 
   
 
 
@@ -35,7 +40,7 @@ function App() {
     <Container>
       <Header/>
       <Category changeList={changeList} categoryList={categoryList}/>
-      <Menu menuItems={menuItems}  />
+      <Menu menuItems={menuItems} changeVisible={changeVisible} visible={visible}  />
 
 
 

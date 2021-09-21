@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { useState } from "react";
+// import { useState } from "react";
 
 
 
@@ -41,28 +41,26 @@ margin-top:20px;`;
 
 
 
-function Menu ({menuItems}){
-    const[visible,setVisible]=useState(false)
-   const changeVisible=()=>{
-     setVisible(!visible)
-   }
-  
+
+function Menu ({menuItems,changeVisible, visible}){
+   
 
 
 
 
     return(
-        <Container>
+        <Container >
             {menuItems.map((items)=>{
                 return(
                     <Wrapper key={items.id}>
                 <Image src={items.img}></Image>
                 <Content>
                     <Title>
-                    <Subtitle  onClick={changeVisible} >{items.title}</Subtitle>
+                    <Subtitle onClick={changeVisible}  >{items.title}</Subtitle>
                     <Price>{items.price}</Price>
                     </Title>
-                    <Desc style={ visible ? {display:"none"} : null}>{items.desc}</Desc>
+                   {visible && <Desc>{items.desc}</Desc>}
+                    {/* <Desc style={ visible ? {display:"none"} : null}>{items.desc}</Desc> */}
                     
 
                 </Content>
