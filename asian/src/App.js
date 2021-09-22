@@ -2,7 +2,7 @@ import {useState} from "react";
 import Header from "./components/Header";
 import styled from "styled-components"
 import Category from "./components/Category";
-import Menu from "./components/Menu";
+import MenuList from "./components/MenuList";
 import {data} from "./components/Data"
 
 
@@ -20,10 +20,7 @@ background-color: orange;
 
 function App() {
   const [menuItems, setMenuItems] =useState(data)
-  const[visible,setVisible]=useState(false)
-  const changeVisible=()=>{
-    setVisible(!visible)
-  }
+  
  
   
 
@@ -40,7 +37,7 @@ function App() {
     <Container>
       <Header/>
       <Category changeList={changeList} categoryList={categoryList}/>
-      <Menu menuItems={menuItems} changeVisible={changeVisible} visible={visible}  />
+      <MenuList menuItems={menuItems}   />
 
 
 
